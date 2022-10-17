@@ -12,12 +12,12 @@ import java.util.regex.Pattern;
  *
  * @author Administrator
  */
-public class Patient extends javax.swing.JFrame {
+public class Doctor extends javax.swing.JFrame {
 
     /**
      * Creates new form Patient
      */
-    public Patient() {
+    public Doctor() {
         initComponents();
     }
 
@@ -55,8 +55,6 @@ public class Patient extends javax.swing.JFrame {
         txtCommunity1 = new javax.swing.JTextField();
         lblZip1 = new javax.swing.JLabel();
         txtAddress2 = new javax.swing.JTextField();
-        lblZip2 = new javax.swing.JLabel();
-        txtAddress3 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
@@ -64,7 +62,7 @@ public class Patient extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Patient Registration");
+        jLabel1.setText("Doctor Registration");
 
         lblName.setText("Name:");
 
@@ -118,9 +116,7 @@ public class Patient extends javax.swing.JFrame {
 
         lblCommunity1.setText("City:");
 
-        lblZip1.setText("Blood Group:");
-
-        lblZip2.setText("Problem:");
+        lblZip1.setText("Specialty:");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -135,10 +131,11 @@ public class Patient extends javax.swing.JFrame {
                 .addComponent(btnDelete)
                 .addGap(18, 18, 18)
                 .addComponent(btnExit)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
+                .addGap(22, 22, 22)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblZip1)
                     .addComponent(lblCommunity1)
                     .addComponent(lblEmail)
                     .addComponent(lblCommunity)
@@ -146,30 +143,26 @@ public class Patient extends javax.swing.JFrame {
                     .addComponent(lblPhone)
                     .addComponent(lblSex)
                     .addComponent(lblAge)
-                    .addComponent(lblName)
-                    .addComponent(lblZip1)
-                    .addComponent(lblZip2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(lblName))
+                .addGap(35, 35, 35)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtPhone, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtPhone)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(cmbSex, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(txtEmail, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCommunity, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtAddress1, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCommunity1, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtAddress2, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtAddress3, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(txtEmail)
+                            .addComponent(txtCommunity)
+                            .addComponent(txtAddress1)
+                            .addComponent(txtCommunity1)
+                            .addComponent(txtAddress2))
                         .addGap(138, 138, 138))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(102, 102, 102)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(12, Short.MAX_VALUE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -206,15 +199,11 @@ public class Patient extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtAddress1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblZip))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblZip1)
                     .addComponent(txtAddress2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblZip2)
-                    .addComponent(txtAddress3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAdd)
                     .addComponent(btnUpdate)
@@ -262,7 +251,7 @@ public class Patient extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 549, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -353,17 +342,32 @@ public class Patient extends javax.swing.JFrame {
             return;            
         }
         
+//        String date = txtDate.getText();
+//        if (date.isBlank()){
+//            JOptionPane.showMessageDialog(this, "Please enter the Date.");
+//            return;            
+//        }
+        
         String email = txtEmail.getText();
         if (!isValidEmail(email)){
             JOptionPane.showMessageDialog(this, "Please enter a valid Email.");
             return;            
-        }      
+        }
+        
+//        int empId;
+//        try{
+//            empId = Integer.parseInt(txtEmpID.getText());
+//        }catch(NumberFormatException e) {
+//            JOptionPane.showMessageDialog(this, "Please enter the Phone.");
+//            return;
+//        }        
         
 //        empList.addEmp(name, empId, age, sex, level, teamInfo, title, phone, email, date, imageFile);
 
         JOptionPane.showMessageDialog(this, "Record Added Successfully.");
 
         txtName.setText("");
+//        txtEmpID.setText("");
         txtAge.setText("");
         cmbSex.setSelectedItem(-1);
 //        txtDate.setText("");
@@ -393,20 +397,21 @@ public class Patient extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Patient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Doctor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Patient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Doctor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Patient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Doctor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Patient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Doctor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Patient().setVisible(true);
+                new Doctor().setVisible(true);
             }
         });
     }
@@ -436,10 +441,8 @@ public class Patient extends javax.swing.JFrame {
     private javax.swing.JLabel lblSex;
     private javax.swing.JLabel lblZip;
     private javax.swing.JLabel lblZip1;
-    private javax.swing.JLabel lblZip2;
     private javax.swing.JTextField txtAddress1;
     private javax.swing.JTextField txtAddress2;
-    private javax.swing.JTextField txtAddress3;
     private javax.swing.JTextField txtAge;
     private javax.swing.JTextField txtCommunity;
     private javax.swing.JTextField txtCommunity1;

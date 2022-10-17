@@ -5,6 +5,15 @@
 
 package ui;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Administrator
@@ -15,6 +24,21 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
     }
+    
+    Connection var;
+    PreparedStatement pst;
+    ResultSet res;
+
+    public void Connect(){
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            this.var = DriverManager.getConnection("jdbc:mysql://localhost/hosp_mgmt","root","");
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(UserLogin.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(UserLogin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }    
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -144,6 +168,29 @@ public class Login extends javax.swing.JFrame {
         String user = txtUsername.getText();
         String password = txtPassword.getText();
         String userRole = cmbUserRole.getSelectedItem().toString();
+        
+        try {
+            pst = var.prepareStatement("select * from login_user where username = ? and password = ? and user_role = ?");
+            pst.setString(1, user);
+            pst.setString(2, password);
+            pst.setString(3, userRole);
+            
+            res = pst.executeQuery();
+            
+            if(res.next()){
+                int userid = res.getInt("id");
+                this.setVisible(false);
+                new MainJFrame(userid, user, userRole).setVisible(true);
+            }
+            else{
+                JOptionPane.showMessageDialog(this,"Invalid credentials.");
+                txtUsername.setText("");
+                txtPassword.setText("");
+                cmbUserRole.setSelectedIndex(-1);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnLoginActionPerformed
 
     /**

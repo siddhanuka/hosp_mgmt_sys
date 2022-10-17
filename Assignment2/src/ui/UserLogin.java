@@ -4,6 +4,14 @@
  */
 package ui;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Administrator
@@ -16,7 +24,20 @@ public class UserLogin extends javax.swing.JFrame {
     public UserLogin() {
         initComponents();
     }
+    
+    Connection var;
+    PreparedStatement pst;
 
+    public void Connect(){
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            this.var = DriverManager.getConnection("jdbc:mysql://localhost/hosp_mgmt","root","");
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(UserLogin.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(UserLogin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -157,10 +178,33 @@ public class UserLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNameActionPerformed
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
-        String name = txtName.getText();
-        String user = txtUsername.getText();
-        String password = txtPassword.getText();
-        String userRole = cmbUserRole.getSelectedItem().toString();
+        Connect();
+        
+        try {
+            String name = txtName.getText();
+            String user = txtUsername.getText();
+            String password = txtPassword.getText();
+            String userRole = cmbUserRole.getSelectedItem().toString();
+            
+            //sql query to insert the record in the database
+            pst = var.prepareStatement("insert into login_user(name, username, password, user_role) values(?,?,?,?)");
+            pst.setString(1, name);
+            pst.setString(2, user);
+            pst.setString(3, password);
+            pst.setString(4, userRole);
+            pst.executeUpdate();
+            
+            JOptionPane.showMessageDialog(this, "User profile created.");
+            
+            //reset the fields once record added successfully
+            txtName.setText("");
+            txtUsername.setText("");
+            txtPassword.setText("");
+            cmbUserRole.setSelectedIndex(-1);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(UserLogin.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnCreateActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
