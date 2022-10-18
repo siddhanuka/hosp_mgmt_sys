@@ -38,4 +38,13 @@ public class Patient extends Person{
         this.blood_group = blood_group;
         this.problem = problem;
     }
+
+    public Patient() {
+    }
+
+    @Override
+    public String toString() {
+        return getName();
+    }
+    
 }
