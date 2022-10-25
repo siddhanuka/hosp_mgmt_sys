@@ -11,8 +11,8 @@ package model;
 public class Doctor extends Person{
     private String specialty;
 
-    public Doctor(String specialty, String name, int age, String gender, String email, long phone) {
-        super(name, age, gender, email, phone);
+    public Doctor(String specialty, String name, int age, String gender, String email, long phone, int id) {
+        super(name, age, gender, email, phone, id);
         this.specialty = specialty;
     }
 

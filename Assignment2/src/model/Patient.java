@@ -11,6 +11,8 @@ package model;
 public class Patient extends Person{
     private String blood_group;
     private String problem;
+    
+//    private Encounter enc;
 
     public String getBlood_group() {
         return blood_group;
@@ -28,10 +30,11 @@ public class Patient extends Person{
         this.problem = problem;
     }
 
-    public Patient(String blood_group, String problem, String name, int age, String gender, String email, long phone) {
-        super(name, age, gender, email, phone);
+    public Patient(String blood_group, String problem, String name, int age, String gender, String email, long phone, int id/*, Encounter enc*/) {
+        super(name, age, gender, email, phone, id);         //pending to add separate contructor person super get methods 
         this.blood_group = blood_group;
         this.problem = problem;
+//        this.enc = enc;
     }
 
     public Patient(String blood_group, String problem) {

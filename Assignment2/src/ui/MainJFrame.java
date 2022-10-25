@@ -4,6 +4,10 @@
  */
 package ui;
 
+import model.DoctorDirectory;
+import model.PatientDirectory;
+import model.PersonDirectory;
+
 /**
  *
  * @author Administrator
@@ -16,9 +20,15 @@ public class MainJFrame extends javax.swing.JFrame {
     int userId;
     String user;
     String role;
+    PersonDirectory perDir;
+    PatientDirectory patDir;
+    DoctorDirectory docDir;
     
     public MainJFrame() {
         initComponents();
+        perDir = new PersonDirectory();
+        patDir = new PatientDirectory();
+        docDir = new DoctorDirectory();
     }
 
     MainJFrame(int userId, String user, String userRole) {
@@ -42,10 +52,13 @@ public class MainJFrame extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         btnCreateUser = new javax.swing.JButton();
         btnPatient = new javax.swing.JButton();
-        btnPatient1 = new javax.swing.JButton();
-        btnPatient2 = new javax.swing.JButton();
-        btnPatient3 = new javax.swing.JButton();
-        btnPatient4 = new javax.swing.JButton();
+        btnEncounter = new javax.swing.JButton();
+        btnDoctor = new javax.swing.JButton();
+        btnHospital = new javax.swing.JButton();
+        btnNearHosp = new javax.swing.JButton();
+        btnExit = new javax.swing.JButton();
+        btnNearHosp1 = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -65,31 +78,45 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
-        btnPatient1.setText("Encounter");
-        btnPatient1.addActionListener(new java.awt.event.ActionListener() {
+        btnEncounter.setText("Encounter");
+        btnEncounter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPatient1ActionPerformed(evt);
+                btnEncounterActionPerformed(evt);
             }
         });
 
-        btnPatient2.setText("Doctor");
-        btnPatient2.addActionListener(new java.awt.event.ActionListener() {
+        btnDoctor.setText("Doctor");
+        btnDoctor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPatient2ActionPerformed(evt);
+                btnDoctorActionPerformed(evt);
             }
         });
 
-        btnPatient3.setText("Hospital");
-        btnPatient3.addActionListener(new java.awt.event.ActionListener() {
+        btnHospital.setText("Hospital");
+        btnHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPatient3ActionPerformed(evt);
+                btnHospitalActionPerformed(evt);
             }
         });
 
-        btnPatient4.setText("Nearby Hospital");
-        btnPatient4.addActionListener(new java.awt.event.ActionListener() {
+        btnNearHosp.setText("Nearby Hospital");
+        btnNearHosp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPatient4ActionPerformed(evt);
+                btnNearHospActionPerformed(evt);
+            }
+        });
+
+        btnExit.setText("Exit");
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
+
+        btnNearHosp1.setText("Switch User");
+        btnNearHosp1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNearHosp1ActionPerformed(evt);
             }
         });
 
@@ -101,34 +128,51 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(35, 35, 35)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnPatient3, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnPatient4)
-                            .addComponent(btnPatient2, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnPatient1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnHospital, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnNearHosp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnDoctor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnEncounter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnNearHosp1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnCreateUser, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnPatient, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(btnPatient, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(40, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(215, Short.MAX_VALUE)
-                .addComponent(btnPatient4, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(154, Short.MAX_VALUE)
+                .addComponent(btnNearHosp1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnPatient3, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnNearHosp, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnPatient2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnHospital, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnPatient1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnEncounter, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnPatient, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnCreateUser, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(174, 174, 174))
+                .addGap(18, 18, 18)
+                .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(113, 113, 113))
+        );
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 570, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -138,14 +182,18 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(973, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(26, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(29, 29, 29)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pack();
@@ -158,25 +206,35 @@ public class MainJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCreateUserActionPerformed
 
     private void btnPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPatientActionPerformed
-        PatientJFrame pat = new PatientJFrame(null);
+        PatientJFrame pat = new PatientJFrame(patDir, this.userId);
         pat.setVisible(true);
     }//GEN-LAST:event_btnPatientActionPerformed
 
-    private void btnPatient1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPatient1ActionPerformed
+    private void btnEncounterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncounterActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnPatient1ActionPerformed
+    }//GEN-LAST:event_btnEncounterActionPerformed
 
-    private void btnPatient2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPatient2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnPatient2ActionPerformed
+    private void btnDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoctorActionPerformed
+        DoctorJFrame doc = new DoctorJFrame(docDir, this.userId);
+        doc.setVisible(true);
+    }//GEN-LAST:event_btnDoctorActionPerformed
 
-    private void btnPatient3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPatient3ActionPerformed
+    private void btnHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHospitalActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnPatient3ActionPerformed
+    }//GEN-LAST:event_btnHospitalActionPerformed
 
-    private void btnPatient4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPatient4ActionPerformed
+    private void btnNearHospActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNearHospActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnPatient4ActionPerformed
+    }//GEN-LAST:event_btnNearHospActionPerformed
+
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_btnExitActionPerformed
+
+    private void btnNearHosp1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNearHosp1ActionPerformed
+        Login log = new Login();
+        this.setVisible(false);
+    }//GEN-LAST:event_btnNearHosp1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -215,11 +273,14 @@ public class MainJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCreateUser;
+    private javax.swing.JButton btnDoctor;
+    private javax.swing.JButton btnEncounter;
+    private javax.swing.JButton btnExit;
+    private javax.swing.JButton btnHospital;
+    private javax.swing.JButton btnNearHosp;
+    private javax.swing.JButton btnNearHosp1;
     private javax.swing.JButton btnPatient;
-    private javax.swing.JButton btnPatient1;
-    private javax.swing.JButton btnPatient2;
-    private javax.swing.JButton btnPatient3;
-    private javax.swing.JButton btnPatient4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }

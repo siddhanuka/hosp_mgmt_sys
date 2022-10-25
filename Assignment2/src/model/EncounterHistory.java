@@ -25,13 +25,16 @@ public class EncounterHistory {
         this.encHist = encHist;
     }
     
-    public void addEncounter(){
-        Encounter enc = new Encounter();
+    public void addEncounter(Encounter enc){
         encHist.add(enc);
     }
     
     public void deleteEncounter(Encounter enc){
         encHist.remove(enc);
+    }
+    
+    public void UpdateEncounter(Encounter ecc, int index){
+        encHist.set(index, ecc);
     }
     
     public ArrayList<Encounter> viewEncHist(){

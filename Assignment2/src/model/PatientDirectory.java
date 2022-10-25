@@ -17,8 +17,7 @@ public class PatientDirectory {
         this.patDir = new ArrayList<>();
     }
     
-    public void addPatient(String blood_group, String problem, String name, int age, String gender, String email, long phone){
-        Patient pat = new Patient(blood_group, problem, name, age, gender, email, phone);
+    public void addPatient(Patient pat){
         this.patDir.add(pat);
     }
 

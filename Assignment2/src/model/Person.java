@@ -5,6 +5,9 @@
 package model;
 
 import java.util.ArrayList;
+import model.City;
+import model.House;
+import model.Community;
 
 /**
  *
@@ -16,14 +19,24 @@ public class Person {
     private String gender;
     private String email;
     private long phone;
+    private int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     private EncounterHistory encHist;
     
-    public Person(String name, int age, String gender, String email, long phone) {
+    public Person(String name, int age, String gender, String email, long phone, int id) {
         this.name = name;
         this.age = age;
         this.gender = gender;
         this.email = email;
         this.phone = phone;
+        this.id = id;
         this.encHist = new EncounterHistory();
     }
 
@@ -71,12 +84,12 @@ public class Person {
     }
     
     //-------------------------------
-    public void addEncounter(){
-        this.encHist.addEncounter();
+    public void addEncounter(Encounter enc){
+        this.encHist.addEncounter(enc);
     }
     
-    public void deleteEncounter(Encounter ecc){
-        this.encHist.deleteEncounter(ecc);
+    public void deleteEncounter(Encounter enc){
+        this.encHist.deleteEncounter(enc);
     }
     
     public ArrayList<Encounter> getEncounterHistory(){

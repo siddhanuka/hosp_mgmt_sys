@@ -8,10 +8,6 @@ package model;
  *
  * @author Administrator
  */
-public class DoctorDirectory {
-
-    public void addDoctor(Doctor doc) {
-        
-    }
+public class CityDirectory {
     
 }

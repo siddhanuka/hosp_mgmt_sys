@@ -10,52 +10,54 @@ import java.util.Date;
  *
  * @author Administrator
  */
-public class Encounter {
-    private Date encounter;
-    private int temp;
-    private int bloodPressure;
-    private int pulse;
+public class Encounter extends VitalSigns{
+    private Date encounterDate;
+    private int encId;
+    private int docId;
+    private String diagnosis;
 
-    Encounter() {
-        
+    public Encounter(Date encounterDate, int encId, int docId, String diagnosis, int temp, int pulse, int bp) {
+        super(temp, pulse, bp);
+        this.encounterDate = encounterDate;
+        this.encId = encId;
+        this.docId = docId;
+        this.diagnosis = diagnosis;
     }
 
+    public int getEncId() {
+        return encId;
+    }
+
+    public void setEncId(int encId) {
+        this.encId = encId;
+    }
+
+    public int getDocId() {
+        return docId;
+    }
+
+    public void setDocId(int docId) {
+        this.docId = docId;
+    }
+
+    public String getDiagnosis() {
+        return diagnosis;
+    }
+
+    public void setDiagnosis(String diagnosis) {
+        this.diagnosis = diagnosis;
+    }
+    
     public Date getEncounter() {
-        return encounter;
+        return encounterDate;
     }
 
     public void setEncounter(Date encounter) {
-        this.encounter = encounter;
+        this.encounterDate = encounter;
     }
 
-    public int getTemp() {
-        return temp;
-    }
-
-    public void setTemp(int temp) {
-        this.temp = temp;
-    }
-
-    public int getBloodPressure() {
-        return bloodPressure;
-    }
-
-    public void setBloodPressure(int bloodPressure) {
-        this.bloodPressure = bloodPressure;
-    }
-
-    public int getPulse() {
-        return pulse;
-    }
-
-    public void setPulse(int pulse) {
-        this.pulse = pulse;
-    }
-
-    public Encounter(Date encounter, int temp, int bloodPressure, int pulse) {
-        this.encounter = encounter;
-        this.temp = temp;
-        this.bloodPressure = bloodPressure;
-        this.pulse = pulse;
+    @Override
+    public String toString() {
+        return String.valueOf(encounterDate);
     }
 }

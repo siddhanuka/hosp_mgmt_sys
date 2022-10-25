@@ -8,10 +8,18 @@ package model;
  *
  * @author Administrator
  */
-public class DoctorDirectory {
+public class City {
+    private String city;
 
-    public void addDoctor(Doctor doc) {
-        
+    public City(String city) {
+        this.city = city;
     }
-    
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
 }

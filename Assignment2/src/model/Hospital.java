@@ -8,10 +8,16 @@ package model;
  *
  * @author Administrator
  */
-public class DoctorDirectory {
+public class Hospital {
+    String name;
+    City city;
+    Community community;
+    DoctorDirectory docDir;
 
-    public void addDoctor(Doctor doc) {
-        
+    public Hospital(String name, City city, Community community) {
+        this.name = name;
+        this.city = city;
+        this.community = community;
     }
     
 }
