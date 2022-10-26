@@ -4,14 +4,33 @@
  */
 package model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Administrator
  */
 public class DoctorDirectory {
+    private ArrayList<Doctor1> docDir;
 
-    public void addDoctor(Doctor doc) {
-        
+    public ArrayList<Doctor1> getDocDir() {
+        return docDir;
+    }
+
+    public void setDocDir(ArrayList<Doctor1> docDir) {
+        this.docDir = docDir;
+    }
+
+    public DoctorDirectory() {
+        this.docDir = new ArrayList<>();
+    }
+    
+    public void addDoctor(Doctor1 doc) {
+        this.docDir.add(doc);
+    }
+    
+    public void deleteDoctor(Doctor1 doc){
+        this.docDir.remove(doc);
     }
     
 }

@@ -11,25 +11,25 @@ import java.util.ArrayList;
  * @author Administrator
  */
 public class PatientDirectory {
-    private ArrayList<Patient> patDir;
+    private ArrayList<Patient1> patDir;
 
     public PatientDirectory() {
         this.patDir = new ArrayList<>();
     }
     
-    public void addPatient(Patient pat){
+    public void addPatient(Patient1 pat){
         this.patDir.add(pat);
     }
 
-    public ArrayList<Patient> getPatDir() {
+    public ArrayList<Patient1> getPatDir() {
         return patDir;
     }
 
-    public void setPatDir(ArrayList<Patient> patDir) {
+    public void setPatDir(ArrayList<Patient1> patDir) {
         this.patDir = patDir;
     }
     
-    public void deletePatient(Patient pat){
+    public void deletePatient(Patient1 pat){
         this.patDir.remove(pat);
     }
     

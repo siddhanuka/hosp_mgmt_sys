@@ -11,49 +11,49 @@ import java.util.ArrayList;
  * @author Administrator
  */
 public class PersonDirectory {
-    ArrayList<Person> personDir;
+    ArrayList<Person1> personDir;
 
     public PersonDirectory() {
         this.personDir = new ArrayList<>();
     }
     
-    public void addPerson(Person person){
+    public void addPerson(Person1 person){
         personDir.add(person);
     }
     
-    public void DeletePerson(Person person){
+    public void DeletePerson(Person1 person){
         personDir.remove(person);
     }
     
-    public ArrayList<Person> getPersonList(){
+    public ArrayList<Person1> getPersonList(){
         return personDir;
     }
     
-    public Person getPersonData(int personId){
-        int index = 0;
-        
-        for(int i=0; i < this.personDir.size(); i++)
-        {
-            if(personDir.get(i).getId() == personId)
-            {
-                index = i;
-                break;
-            }
-        }
-        return personDir.get(index);
-    }
-    
-    public void AddEncounterForPerson(int personId, Encounter ecc){
-        int index = 0;
-        
-        for(int i = 0; i < this.personDir.size(); i++)
-        {
-            if(personDir.get(i).getId() == personId)
-            {
-                index = i;
-                break;
-            }
-        }
-        personDir.get(index).addEncounter(ecc);
-    }    
+//    public Person1 getPersonData(int personId){
+//        int index = 0;
+//        
+//        for(int i=0; i < this.personDir.size(); i++)
+//        {
+//            if(personDir.get(i).getId() == personId)
+//            {
+//                index = i;
+//                break;
+//            }
+//        }
+//        return personDir.get(index);
+//    }
+//    
+//    public void AddEncounterForPerson(int personId, Encounter ecc){
+//        int index = 0;
+//        
+//        for(int i = 0; i < this.personDir.size(); i++)
+//        {
+//            if(personDir.get(i).getId() == personId)
+//            {
+//                index = i;
+//                break;
+//            }
+//        }
+//        personDir.get(index).addEncounter(ecc);
+//    }    
 }

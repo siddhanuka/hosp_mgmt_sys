@@ -42,6 +42,4 @@ class VitalSigns extends Patient {
     public void setBp(int bp) {
         this.bp = bp;
     }
-
-    
 }

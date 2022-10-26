@@ -36,55 +36,31 @@ public class PersonRegistration extends javax.swing.JFrame {
     
     public PersonRegistration(PatientDirectory patDir, int id) {
         initComponents();
-//        Connect();
-//        autoIncrementId();
-//        populateTable();
         this.patDir = patDir;
         this.userId = id;
     }
     
-
-//    public void autoIncrementId()
-//    {
-//        try {
+//    public void populateTable(){
+//        DefaultTableModel model = (DefaultTableModel)tblPat.getModel();
+//        model.setRowCount(0);
+//        
+//        for (Patient pat : patDir.getPatDir()){
+//            Object[] row = new Object[10];
+//            row[0] = pat;
+//            row[1] = pat.getId();
+//            row[2] = pat.getAge();
+//            row[3] = pat.getGender();
+//            row[4] = pat.getPhone();
+//            row[5] = pat.getEmail();
+//            row[6] = pat.getBlood_group();
+//            row[7] = pat.getProblem();
 //
-//            Statement s = var.createStatement();
-//            ResultSet rs = s.executeQuery("SELECT MAX(pat_id) FROM patient");
-//            rs.next();
-//            rs.getString("MAX(pat_id)");
-//            if (rs.getString("MAX(pat_id)") == null) {
-//                txtPatNo.setText("001");     
-//            } else {
-//                int id = Integer.parseInt(rs.getString("MAX(pat_id)"));     //.substring(2, rs.getString("MAX(pat_id)"))
-//                id++;
-//                txtPatNo.setText(String.format("%03d", id));
-//            }
-//        } catch (Exception ex) {
-//            ex.printStackTrace();
-//        }      
+//            model.addRow(row);
+//        }
+//        if (model.getRowCount()==0){
+//            JOptionPane.showMessageDialog(this, "No records retrieved.");
+//        }        
 //    }
-    
-    public void populateTable(){
-        DefaultTableModel model = (DefaultTableModel)tblPat.getModel();
-        model.setRowCount(0);
-        
-        for (Patient pat : patDir.getPatDir()){
-            Object[] row = new Object[10];
-            row[0] = pat;
-            row[1] = pat.getId();
-            row[2] = pat.getAge();
-            row[3] = pat.getGender();
-            row[4] = pat.getPhone();
-            row[5] = pat.getEmail();
-            row[6] = pat.getBlood_group();
-            row[7] = pat.getProblem();
-
-            model.addRow(row);
-        }
-        if (model.getRowCount()==0){
-            JOptionPane.showMessageDialog(this, "No records retrieved.");
-        }        
-    }
     
     public void resetFields(){
         txtName.setText("");
@@ -325,21 +301,21 @@ public class PersonRegistration extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 423, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -492,12 +468,7 @@ public class PersonRegistration extends javax.swing.JFrame {
         }      
         
         int pat_id = getId();
-//        try{
-//            pat_id = Integer.parseInt(txtId.getText());   
-//        }catch(NumberFormatException e) {
-//            JOptionPane.showMessageDialog(this, "Please enter a valid Patient Number.");
-//            return;
-//        }
+
         String role = cmbRole.getSelectedItem().toString();
         String user = txtUser.getText();
         String pass = txtPass.getText();
@@ -506,7 +477,6 @@ public class PersonRegistration extends javax.swing.JFrame {
         patDir.addPatient(pat);
         
         JOptionPane.showMessageDialog(this, "Record added successfully.");
-        populateTable();
         resetFields();
     }//GEN-LAST:event_btnAddActionPerformed
     

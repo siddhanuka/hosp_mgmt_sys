@@ -6,7 +6,7 @@ package model;
 
 import java.util.Date;
 
-/**
+/*
  *
  * @author Administrator
  */
@@ -15,6 +15,7 @@ public class Encounter extends VitalSigns{
     private int encId;
     private int docId;
     private String diagnosis;
+    private String ecounterWith;        //need to check if needed with docId
 
     public Encounter(Date encounterDate, int encId, int docId, String diagnosis, int temp, int pulse, int bp) {
         super(temp, pulse, bp);
