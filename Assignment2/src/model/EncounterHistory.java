@@ -37,9 +37,4 @@ public class EncounterHistory {
         encHist.set(index, ecc);
     }
     
-    public ArrayList<Encounter> viewEncHist(){
-        return encHist;
-    }
-    
-    
 }

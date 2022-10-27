@@ -92,9 +92,9 @@ public class Person {
         this.encHist.deleteEncounter(enc);
     }
     
-    public ArrayList<Encounter> getEncounterHistory(){
-        return this.encHist.viewEncHist();
-    }
+//    public ArrayList<Encounter> getEncounterHistory(){
+//        return this.encHist.viewEncHist();
+//    }
     //---------------------------------
 
     @Override

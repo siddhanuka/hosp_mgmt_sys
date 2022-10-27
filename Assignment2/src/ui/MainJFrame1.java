@@ -7,6 +7,7 @@ package ui;
 import java.util.Random;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 import model.Doctor1;
 import model.DoctorDirectory;
 import model.Encounter;
@@ -27,7 +28,7 @@ public class MainJFrame1 extends javax.swing.JFrame {
     PatientDirectory patDir = new PatientDirectory();
     DoctorDirectory docDir = new DoctorDirectory();
     EncounterHistory encHis = new EncounterHistory();
-//    Encounter enc = new Encounter
+    Encounter encounter = new Encounter();
     
     public MainJFrame1() {
         initComponents();
@@ -81,30 +82,37 @@ public class MainJFrame1 extends javax.swing.JFrame {
         btnDelete = new javax.swing.JButton();
         btnExit = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        EncounterPanel = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        lblDate = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        lblDiag = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        txtDiag = new javax.swing.JTextArea();
-        btnSave = new javax.swing.JButton();
-        btnClose = new javax.swing.JButton();
-        ViewAppointmentPanel = new javax.swing.JPanel();
+        jEncounterPanel = new javax.swing.JPanel();
+        AddEncounterPanel = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblDocAptList = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jTextField7 = new javax.swing.JTextField();
+        lblDate1 = new javax.swing.JLabel();
+        jTextField8 = new javax.swing.JTextField();
+        lblDiag1 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        txtDiag1 = new javax.swing.JTextArea();
+        jLabel11 = new javax.swing.JLabel();
+        btnSave1 = new javax.swing.JButton();
+        jTextField9 = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        jTextField10 = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
         BookAppointmentPanel = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtBookAptDate = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        cmbChooseDoc = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -382,104 +390,161 @@ public class MainJFrame1 extends javax.swing.JFrame {
 
         ParentPanel.add(RegistrationPanel, "card3");
 
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel2.setText("Blood Pressure:");
-
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
-            }
-        });
-
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel3.setText("Pulse:");
-
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel4.setText("Temperature:");
-
-        lblDate.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblDate.setText("Date:");
-
-        lblDiag.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblDiag.setText("Diagnosis:");
-
-        txtDiag.setColumns(20);
-        txtDiag.setRows(5);
-        jScrollPane1.setViewportView(txtDiag);
-
-        btnSave.setText("Save");
-
-        btnClose.setText("Close");
-
-        javax.swing.GroupLayout EncounterPanelLayout = new javax.swing.GroupLayout(EncounterPanel);
-        EncounterPanel.setLayout(EncounterPanelLayout);
-        EncounterPanelLayout.setHorizontalGroup(
-            EncounterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(EncounterPanelLayout.createSequentialGroup()
-                .addGap(410, 410, 410)
-                .addGroup(EncounterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnSave)
-                    .addGroup(EncounterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblDiag, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(EncounterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(EncounterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jTextField2)
-                        .addComponent(jTextField3)
-                        .addComponent(jTextField4)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnClose)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(361, Short.MAX_VALUE))
-        );
-        EncounterPanelLayout.setVerticalGroup(
-            EncounterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(EncounterPanelLayout.createSequentialGroup()
-                .addGap(223, 223, 223)
-                .addGroup(EncounterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(EncounterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(EncounterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(EncounterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblDate)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(EncounterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblDiag)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(EncounterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSave)
-                    .addComponent(btnClose))
-                .addContainerGap(237, Short.MAX_VALUE))
-        );
-
-        ParentPanel.add(EncounterPanel, "card5");
-
-        javax.swing.GroupLayout ViewAppointmentPanelLayout = new javax.swing.GroupLayout(ViewAppointmentPanel);
-        ViewAppointmentPanel.setLayout(ViewAppointmentPanelLayout);
-        ViewAppointmentPanelLayout.setHorizontalGroup(
-            ViewAppointmentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jEncounterPanelLayout = new javax.swing.GroupLayout(jEncounterPanel);
+        jEncounterPanel.setLayout(jEncounterPanelLayout);
+        jEncounterPanelLayout.setHorizontalGroup(
+            jEncounterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 1184, Short.MAX_VALUE)
         );
-        ViewAppointmentPanelLayout.setVerticalGroup(
-            ViewAppointmentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jEncounterPanelLayout.setVerticalGroup(
+            jEncounterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 808, Short.MAX_VALUE)
         );
 
-        ParentPanel.add(ViewAppointmentPanel, "card5");
+        ParentPanel.add(jEncounterPanel, "card5");
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("Doctor Appointments");
+
+        tblDocAptList.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Encounter ID", "Patient Name", "Appointment Date"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(tblDocAptList);
+
+        jButton1.setText("Add Diagnosis");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Logout");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        lblDate1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblDate1.setText("Date:");
+
+        jTextField8.setEnabled(false);
+
+        lblDiag1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblDiag1.setText("Diagnosis:");
+
+        txtDiag1.setColumns(20);
+        txtDiag1.setRows(5);
+        jScrollPane3.setViewportView(txtDiag1);
+
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel11.setText("Blood Pressure:");
+
+        btnSave1.setText("Save");
+        btnSave1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSave1ActionPerformed(evt);
+            }
+        });
+
+        jTextField9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField9ActionPerformed(evt);
+            }
+        });
+
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel12.setText("Pulse:");
+
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel13.setText("Temperature:");
+
+        javax.swing.GroupLayout AddEncounterPanelLayout = new javax.swing.GroupLayout(AddEncounterPanel);
+        AddEncounterPanel.setLayout(AddEncounterPanelLayout);
+        AddEncounterPanelLayout.setHorizontalGroup(
+            AddEncounterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AddEncounterPanelLayout.createSequentialGroup()
+                .addContainerGap(55, Short.MAX_VALUE)
+                .addGroup(AddEncounterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 1036, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1)
+                    .addGroup(AddEncounterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(AddEncounterPanelLayout.createSequentialGroup()
+                            .addGroup(AddEncounterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblDate1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblDiag1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(18, 18, 18)
+                            .addGroup(AddEncounterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(AddEncounterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTextField9)
+                                    .addComponent(jTextField10)
+                                    .addComponent(jTextField7)
+                                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(AddEncounterPanelLayout.createSequentialGroup()
+                                    .addComponent(btnSave1)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jButton2))))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1036, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(93, 93, 93))
+        );
+        AddEncounterPanelLayout.setVerticalGroup(
+            AddEncounterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AddEncounterPanelLayout.createSequentialGroup()
+                .addGap(88, 88, 88)
+                .addComponent(jLabel10)
+                .addGap(33, 33, 33)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addGap(14, 14, 14)
+                .addGroup(AddEncounterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(AddEncounterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(AddEncounterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(AddEncounterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDate1)
+                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(AddEncounterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblDiag1)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(AddEncounterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSave1)
+                    .addComponent(jButton2))
+                .addContainerGap(90, Short.MAX_VALUE))
+        );
+
+        ParentPanel.add(AddEncounterPanel, "card5");
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -491,26 +556,46 @@ public class MainJFrame1 extends javax.swing.JFrame {
 
         jLabel9.setText("Hospital:");
 
+        jButton3.setText("Logout");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jButton4.setText("Book");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout BookAppointmentPanelLayout = new javax.swing.GroupLayout(BookAppointmentPanel);
         BookAppointmentPanel.setLayout(BookAppointmentPanelLayout);
         BookAppointmentPanelLayout.setHorizontalGroup(
             BookAppointmentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BookAppointmentPanelLayout.createSequentialGroup()
-                .addGroup(BookAppointmentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(BookAppointmentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(BookAppointmentPanelLayout.createSequentialGroup()
-                        .addGap(447, 447, 447)
-                        .addComponent(jLabel6))
-                    .addGroup(BookAppointmentPanelLayout.createSequentialGroup()
-                        .addGap(294, 294, 294)
-                        .addGroup(BookAppointmentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel9))
+                        .addContainerGap()
+                        .addComponent(jButton4)
                         .addGap(18, 18, 18)
-                        .addGroup(BookAppointmentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField6)
-                            .addComponent(jTextField1)
-                            .addComponent(jTextField7))))
+                        .addComponent(jButton3))
+                    .addGroup(BookAppointmentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(BookAppointmentPanelLayout.createSequentialGroup()
+                            .addGap(447, 447, 447)
+                            .addComponent(jLabel6))
+                        .addGroup(BookAppointmentPanelLayout.createSequentialGroup()
+                            .addGap(294, 294, 294)
+                            .addGroup(BookAppointmentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel7)
+                                .addComponent(jLabel8)
+                                .addComponent(jLabel9))
+                            .addGap(18, 18, 18)
+                            .addGroup(BookAppointmentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jTextField6)
+                                .addComponent(txtBookAptDate)
+                                .addComponent(cmbChooseDoc, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addContainerGap(520, Short.MAX_VALUE))
         );
         BookAppointmentPanelLayout.setVerticalGroup(
@@ -525,12 +610,16 @@ public class MainJFrame1 extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(BookAppointmentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtBookAptDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(BookAppointmentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(515, Short.MAX_VALUE))
+                    .addComponent(cmbChooseDoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(96, 96, 96)
+                .addGroup(BookAppointmentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton3)
+                    .addComponent(jButton4))
+                .addContainerGap(396, Short.MAX_VALUE))
         );
 
         ParentPanel.add(BookAppointmentPanel, "card6");
@@ -547,6 +636,19 @@ public class MainJFrame1 extends javax.swing.JFrame {
         );
 
         ParentPanel.add(jPanel1, "card7");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1184, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 808, Short.MAX_VALUE)
+        );
+
+        ParentPanel.add(jPanel2, "card8");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -619,7 +721,16 @@ public class MainJFrame1 extends javax.swing.JFrame {
 
         String role = cmbRole.getSelectedItem().toString();
         String user = txtUser.getText();
-        String pass = txtPass.getText();
+        if (user.isBlank()){
+            JOptionPane.showMessageDialog(this, "Please enter the Username.");
+            return;
+        }        
+        
+        String pass = String.valueOf(txtPass.getText());
+        if (pass.isBlank()){
+            JOptionPane.showMessageDialog(this, "Please enter the Password.");
+            return;
+        }        
         
         if (role.equalsIgnoreCase("Patient")){
             Patient1 pat = new Patient1();
@@ -646,10 +757,11 @@ public class MainJFrame1 extends javax.swing.JFrame {
             doc.setUserRole(role);
             doc.setUsername(user);
             docDir.addDoctor(doc);
+            cmbChooseDoc.addItem(doc.getName());
         }
 
         JOptionPane.showMessageDialog(this, "Record added successfully.");
-      
+        switchPanels(LoginPanel);
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
@@ -723,15 +835,100 @@ public class MainJFrame1 extends javax.swing.JFrame {
         Patient1 patD = AuthenticatePatient();
         Doctor1 docD = AuthenticateDoctor();
         
+        if(patD != null || docD != null){
+            if(patD.getUserRole().equals("Patient")){
+                switchPanels(BookAppointmentPanel);
+            }
+            else if (docD.getUserRole().equals("Doctor")){
+                switchPanels(AddEncounterPanel);
+                docAptList(docD.getDocId());
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Invalid Username/Password.");
+            return;
+        }
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
         switchPanels(RegistrationPanel);
     }//GEN-LAST:event_btnRegisterActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        switchPanels(LoginPanel);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        switchPanels(LoginPanel);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        int index = tblDocAptList.getSelectedRow();
+        
+        if (index < 0){
+            JOptionPane.showMessageDialog(this, "Please select an appointment to proceed.");
+            return;
+        }
+        else{
+            enableBookFields(true);
+            int encId = (int) tblDocAptList.getValueAt(index, 0);
+            for(Encounter enc: encHis.getEncHist()){
+                if(enc.getEncId() == encId){
+                    this.encounter = enc;
+                }
+            }
+            jTextField8.setText(this.encounter.getEncounter().toString());
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_jTextField9ActionPerformed
+
+    private void btnSave1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSave1ActionPerformed
+        int bp;
+        try{
+            bp = Integer.parseInt(jTextField9.getText());
+        }catch(NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Please enter the blood pressure.");
+            return;
+        }
+        
+        int pulse;
+        try{
+            pulse = Integer.parseInt(jTextField10.getText());
+        }catch(NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Please enter the pulse.");
+            return;
+        }
+        
+        int temp;
+        try{
+            temp = Integer.parseInt(jTextField7.getText());
+        }catch(NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Please enter the temperature.");
+            return;
+        }
+        
+        String diag = txtDiag1.getText();
+        if (diag.isBlank()){
+            JOptionPane.showMessageDialog(this, "Please enter the Diagnosis.");
+            return;
+        }
+        
+        Encounter addEnc = new Encounter();
+        addEnc.setEncId(getId());
+//        addEnc.setEncounter(jTextField8.getText());
+        addEnc.setDiagnosis(diag);
+        addEnc.setBp(bp);
+        addEnc.setPulse(pulse);
+        addEnc.setTemp(temp);
+        
+    }//GEN-LAST:event_btnSave1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -769,46 +966,51 @@ public class MainJFrame1 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel AddEncounterPanel;
     private javax.swing.JPanel BookAppointmentPanel;
-    private javax.swing.JPanel EncounterPanel;
     private javax.swing.JPanel LoginPanel;
     private javax.swing.JPanel ParentPanel;
     private javax.swing.JPanel RegistrationPanel;
-    private javax.swing.JPanel ViewAppointmentPanel;
     private javax.swing.JButton btnAdd;
-    private javax.swing.JButton btnClose;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnLogin;
     private javax.swing.JButton btnRegister;
-    private javax.swing.JButton btnSave;
+    private javax.swing.JButton btnSave1;
     private javax.swing.JButton btnUpdate;
+    private javax.swing.JComboBox<String> cmbChooseDoc;
     private javax.swing.JComboBox<String> cmbRole;
     private javax.swing.JComboBox<String> cmbSex;
     private javax.swing.JComboBox<String> cmbUserRole;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JPanel jEncounterPanel;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField jTextField9;
     private javax.swing.JLabel lblAge;
     private javax.swing.JLabel lblCity;
     private javax.swing.JLabel lblCommunity;
-    private javax.swing.JLabel lblDate;
-    private javax.swing.JLabel lblDiag;
+    private javax.swing.JLabel lblDate1;
+    private javax.swing.JLabel lblDiag1;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblPassword;
@@ -820,10 +1022,12 @@ public class MainJFrame1 extends javax.swing.JFrame {
     private javax.swing.JLabel lblZip1;
     private javax.swing.JLabel lblZip2;
     private javax.swing.JLabel lblZip3;
+    private javax.swing.JTable tblDocAptList;
     private javax.swing.JTextField txtAge;
+    private javax.swing.JTextField txtBookAptDate;
     private javax.swing.JTextField txtCity;
     private javax.swing.JTextField txtCommunity;
-    private javax.swing.JTextArea txtDiag;
+    private javax.swing.JTextArea txtDiag1;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtName;
     private javax.swing.JPasswordField txtPass;
@@ -870,4 +1074,27 @@ public class MainJFrame1 extends javax.swing.JFrame {
         String regex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
         return email.matches(regex);
     }    
+
+    private void docAptList(int docId) {
+        DefaultTableModel model = (DefaultTableModel) tblDocAptList.getModel();
+        model.setRowCount(0);
+        for(Encounter enc: encHis.getEncHist()){
+            if(enc.getDocId() == docId ){
+                Object[] row = new Object[3];
+                row[0]=enc;
+                row[1]=enc.getPatName();
+                row[2]=enc.getEncounter();
+                model.addRow(row); 
+            }
+        }
+    }
+
+    private void enableBookFields(boolean b) {
+        jTextField9.setEnabled(b);
+        jTextField10.setEnabled(b);
+        jTextField7.setEnabled(b);
+        txtDiag1.setEnabled(b);
+    }
+    
+    
 }

@@ -17,14 +17,10 @@ public class Encounter extends VitalSigns{
     private String diagnosis;
     private String ecounterWith;        //need to check if needed with docId
 
-    public Encounter(Date encounterDate, int encId, int docId, String diagnosis, int temp, int pulse, int bp) {
-        super(temp, pulse, bp);
-        this.encounterDate = encounterDate;
-        this.encId = encId;
-        this.docId = docId;
-        this.diagnosis = diagnosis;
+    public String getPatName(){
+        return super.getName();
     }
-
+    
     public int getEncId() {
         return encId;
     }
@@ -59,6 +55,6 @@ public class Encounter extends VitalSigns{
 
     @Override
     public String toString() {
-        return String.valueOf(encounterDate);
+        return String.valueOf(encId);
     }
 }

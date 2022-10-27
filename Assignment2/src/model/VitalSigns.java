@@ -8,16 +8,10 @@ package model;
  *
  * @author Administrator
  */
-class VitalSigns extends Patient {
+class VitalSigns extends Patient1 {
     private int temp;
     private int pulse;
     private int bp;
-
-    public VitalSigns(int temp, int pulse, int bp) {
-        this.temp = temp;
-        this.pulse = pulse;
-        this.bp = bp;
-    }
 
     public int getTemp() {
         return temp;
