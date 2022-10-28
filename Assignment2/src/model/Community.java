@@ -11,10 +11,6 @@ package model;
 public class Community {
     private String communityNames;
 
-    public Community(String communityNames) {
-        this.communityNames = communityNames;
-    }
-
     public String getCommunityNames() {
         return communityNames;
     }
@@ -22,6 +18,10 @@ public class Community {
     public void setCommunityNames(String communityNames) {
         this.communityNames = communityNames;
     }
-    
+
+    @Override
+    public String toString() {
+        return communityNames ;
+    }
     
 }

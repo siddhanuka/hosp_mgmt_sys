@@ -13,9 +13,17 @@ import java.util.Date;
 public class Encounter extends VitalSigns{
     private Date encounterDate;
     private int encId;
-    private int docId;
+//    private int docId;
     private String diagnosis;
     private String ecounterWith;        //need to check if needed with docId
+
+    public String getEcounterWith() {
+        return ecounterWith;
+    }
+
+    public void setEcounterWith(String ecounterWith) {
+        this.ecounterWith = ecounterWith;
+    }
 
     public String getPatName(){
         return super.getName();
@@ -29,13 +37,13 @@ public class Encounter extends VitalSigns{
         this.encId = encId;
     }
 
-    public int getDocId() {
-        return docId;
-    }
-
-    public void setDocId(int docId) {
-        this.docId = docId;
-    }
+//    public int getDocId() {
+//        return docId;
+//    }
+//
+//    public void setDocId(int docId) {
+//        this.docId = docId;
+//    }
 
     public String getDiagnosis() {
         return diagnosis;

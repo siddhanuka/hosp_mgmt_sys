@@ -4,20 +4,62 @@
  */
 package model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Administrator
  */
 public class Hospital {
-    String name;
-    City city;
-    Community community;
-    DoctorDirectory docDir;
+    private String name;
+    private City city;
+    private Community community;
+    private ArrayList<Doctor> docList;
 
-    public Hospital(String name, City city, Community community) {
+    public ArrayList<Doctor> getDocList() {
+        return docList;
+    }
+
+    public void setDocList(ArrayList<Doctor> docList) {
+        this.docList = docList;
+    }
+    
+    public void addDoctor(Doctor d){
+        this.docList.add(d);
+    }
+    
+    public void removeDoctor(Doctor doc){
+        this.docList.remove(doc);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
         this.name = name;
+    }
+
+    public City getCity() {
+        return city;
+    }
+
+    public void setCity(City city) {
         this.city = city;
+    }
+
+    public Community getCommunity() {
+        return community;
+    }
+
+    public void setCommunity(Community community) {
         this.community = community;
     }
+
+    @Override
+    public String toString() {
+        return name ;
+    }
+
     
 }

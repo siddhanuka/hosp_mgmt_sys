@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * @author Administrator
  */
 public class HouseDirectory {
-    ArrayList<House> houseDir;
+    private ArrayList<House> houseDir;
     
     public HouseDirectory() {
         this.houseDir = new ArrayList<>();
@@ -28,11 +28,12 @@ public class HouseDirectory {
     public void addNewHouse(House e){
         houseDir.add(e);
     }
-    public void deleteNewHouse(int i){
+    
+    public void deleteNewHouse(House i){
         houseDir.remove(i);
     }
+    
     public void updateHouseDetails(int i, House updateAddress){
         houseDir.set(i, updateAddress);
     }    
-    
 }
