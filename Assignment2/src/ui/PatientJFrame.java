@@ -67,22 +67,22 @@ public class PatientJFrame extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel)tblPat.getModel();
         model.setRowCount(0);
         
-        for (Patient pat : patDir.getPatDir()){
-            Object[] row = new Object[10];
-            row[0] = pat;
-            row[1] = pat.getId();
-            row[2] = pat.getAge();
-            row[3] = pat.getGender();
-            row[4] = pat.getPhone();
-            row[5] = pat.getEmail();
-            row[6] = pat.getBlood_group();
-            row[7] = pat.getProblem();
-
-            model.addRow(row);
-        }
-        if (model.getRowCount()==0){
-            JOptionPane.showMessageDialog(this, "No records retrieved.");
-        }        
+//        for (Patient pat : patDir.getPatDir()){
+//            Object[] row = new Object[10];
+//            row[0] = pat;
+//            row[1] = pat.getId();
+//            row[2] = pat.getAge();
+//            row[3] = pat.getGender();
+//            row[4] = pat.getPhone();
+//            row[5] = pat.getEmail();
+//            row[6] = pat.getBlood_group();
+//            row[7] = pat.getProblem();
+//
+//            model.addRow(row);
+//        }
+//        if (model.getRowCount()==0){
+//            JOptionPane.showMessageDialog(this, "No records retrieved.");
+//        }        
     }
     
     public void resetFields(){
@@ -524,7 +524,7 @@ public class PatientJFrame extends javax.swing.JFrame {
         String problem = txtProblem.getText();
         
         Patient pat = new Patient(bloodGrp, problem, name, age, sex, email, phone, pat_id);
-        patDir.addPatient(pat);
+//        patDir.addPatient(pat);
         
         JOptionPane.showMessageDialog(this, "Record added successfully.");
         populateTable();

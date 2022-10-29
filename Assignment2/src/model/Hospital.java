@@ -14,21 +14,21 @@ public class Hospital {
     private String name;
     private City city;
     private Community community;
-    private ArrayList<Doctor> docList;
+    private ArrayList<Doctor1> docList;
 
-    public ArrayList<Doctor> getDocList() {
+    public ArrayList<Doctor1> getDocList() {
         return docList;
     }
 
-    public void setDocList(ArrayList<Doctor> docList) {
+    public void setDocList(ArrayList<Doctor1> docList) {
         this.docList = docList;
     }
     
-    public void addDoctor(Doctor d){
+    public void addDoctor(Doctor1 d){
         this.docList.add(d);
     }
     
-    public void removeDoctor(Doctor doc){
+    public void removeDoctor(Doctor1 doc){
         this.docList.remove(doc);
     }
 

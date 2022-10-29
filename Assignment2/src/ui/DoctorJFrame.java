@@ -463,7 +463,7 @@ public class DoctorJFrame extends javax.swing.JFrame {
         String spec = txtSpecialty.getText();
         
         Doctor doc = new Doctor(spec, name, age, sex, email, phone, doc_id);
-        docDir.addDoctor(doc);
+//        docDir.addDoctor(doc);
         
         JOptionPane.showMessageDialog(this, "Record added successfully.");
         populateTable();
@@ -482,7 +482,7 @@ public class DoctorJFrame extends javax.swing.JFrame {
         cmbSex.setSelectedItem(pat.getGender());
         txtEmail.setText(pat.getEmail());
         txtPhone.setText(String.valueOf(pat.getPhone()));
-        txtBlood.setText(pat.getBlood_group());
+//        txtBlood.setText(pat.getBlood_group());
         txtDocId.setText(String.valueOf(pat.getId()));
         
         btnAdd.setEnabled(false);

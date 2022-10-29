@@ -97,6 +97,34 @@ public class Person1 {
     public void setPhone(long phone) {
         this.phone = phone;
     }
+    
+    String city;
+    String community;
+    String house;
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getCommunity() {
+        return community;
+    }
+
+    public void setCommunity(String community) {
+        this.community = community;
+    }
+
+    public String getHouse() {
+        return house;
+    }
+
+    public void setHouse(String house) {
+        this.house = house;
+    }
 
     @Override
     public String toString() {

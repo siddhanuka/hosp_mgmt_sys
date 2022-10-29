@@ -15,7 +15,7 @@ public class Encounter extends VitalSigns{
     private int encId;
 //    private int docId;
     private String diagnosis;
-    private String ecounterWith;        //need to check if needed with docId
+    private String ecounterWith;        
 
     public String getEcounterWith() {
         return ecounterWith;

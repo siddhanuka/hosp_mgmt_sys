@@ -343,80 +343,80 @@ public class PersonRegistration extends javax.swing.JFrame {
     }//GEN-LAST:event_txtAgeActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-        int rowIndex = tblPat.getSelectedRow();
-        
-        if ((rowIndex < 0) ){
-            JOptionPane.showMessageDialog(this, "Please select/view a row to update.");
-            return;
-        }
-        
-        String name = txtName.getText();
-        if (name.isBlank()){
-            JOptionPane.showMessageDialog(this, "Please enter the Name.");
-            return;
-        }
-        
-        long phone;
-        try{
-            phone = Long.parseLong(txtPhone.getText());
-            if (txtPhone.getText().length() < 10) {
-                JOptionPane.showMessageDialog(this, "Please enter a 10 digit number.");
-                return;
-            }
-        }catch(NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Please enter a number for Phone.");
-            return;
-        }
-        
-        int age;
-        try{
-            age = Integer.parseInt(txtAge.getText());
-            if (age < 0) {
-                JOptionPane.showMessageDialog(this, "Please enter a valid number for Age.");
-                return;
-            }    
-        }catch(NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Please enter a valid number for Age.");
-            return;
-        }
-        
-        String sex = cmbSex.getSelectedItem().toString();
-        if (sex.isBlank()){
-            JOptionPane.showMessageDialog(this, "Please enter the Gender.");
-            return;            
-        }
-        
-        String email = txtEmail.getText();
-        if (!isValidEmail(email)){
-            JOptionPane.showMessageDialog(this, "Please enter a valid Email.");
-            return;            
-        }      
-        
-        int pat_id;
-        try{
-            pat_id = Integer.parseInt(txtId.getText());   
-        }catch(NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Please enter a valid Patient Number.");
-            return;
-        }  
-        
+//        int rowIndex = tblPat.getSelectedRow();
+//        
+//        if ((rowIndex < 0) ){
+//            JOptionPane.showMessageDialog(this, "Please select/view a row to update.");
+//            return;
+//        }
+//        
+//        String name = txtName.getText();
+//        if (name.isBlank()){
+//            JOptionPane.showMessageDialog(this, "Please enter the Name.");
+//            return;
+//        }
+//        
+//        long phone;
+//        try{
+//            phone = Long.parseLong(txtPhone.getText());
+//            if (txtPhone.getText().length() < 10) {
+//                JOptionPane.showMessageDialog(this, "Please enter a 10 digit number.");
+//                return;
+//            }
+//        }catch(NumberFormatException e) {
+//            JOptionPane.showMessageDialog(this, "Please enter a number for Phone.");
+//            return;
+//        }
+//        
+//        int age;
+//        try{
+//            age = Integer.parseInt(txtAge.getText());
+//            if (age < 0) {
+//                JOptionPane.showMessageDialog(this, "Please enter a valid number for Age.");
+//                return;
+//            }    
+//        }catch(NumberFormatException e) {
+//            JOptionPane.showMessageDialog(this, "Please enter a valid number for Age.");
+//            return;
+//        }
+//        
+//        String sex = cmbSex.getSelectedItem().toString();
+//        if (sex.isBlank()){
+//            JOptionPane.showMessageDialog(this, "Please enter the Gender.");
+//            return;            
+//        }
+//        
+//        String email = txtEmail.getText();
+//        if (!isValidEmail(email)){
+//            JOptionPane.showMessageDialog(this, "Please enter a valid Email.");
+//            return;            
+//        }      
+//        
+//        int pat_id;
+//        try{
+//            pat_id = Integer.parseInt(txtId.getText());   
+//        }catch(NumberFormatException e) {
+//            JOptionPane.showMessageDialog(this, "Please enter a valid Patient Number.");
+//            return;
+//        }  
+//        
         
         
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        int rowIndex = tblPat.getSelectedRow();
-        
-        if ((rowIndex < 0) ){
-            JOptionPane.showMessageDialog(this, "Please select/view a row to delete.");
-            return;
-        }        
-        
-        int pat_id = Integer.parseInt(txtId.getText());
-        
-        JOptionPane.showMessageDialog(this, "Record deleted successfully.");
-        populateTable();
-        resetFields();        
+//        int rowIndex = tblPat.getSelectedRow();
+//        
+//        if ((rowIndex < 0) ){
+//            JOptionPane.showMessageDialog(this, "Please select/view a row to delete.");
+//            return;
+//        }        
+//        
+//        int pat_id = Integer.parseInt(txtId.getText());
+//        
+//        JOptionPane.showMessageDialog(this, "Record deleted successfully.");
+//        populateTable();
+//        resetFields();        
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
@@ -474,7 +474,7 @@ public class PersonRegistration extends javax.swing.JFrame {
         String pass = txtPass.getText();
         
         Patient pat = new Patient("", "", name, age, sex, email, phone, pat_id);
-        patDir.addPatient(pat);
+//        patDir.addPatient(pat);
         
         JOptionPane.showMessageDialog(this, "Record added successfully.");
         resetFields();
