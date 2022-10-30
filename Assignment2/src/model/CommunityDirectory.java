@@ -33,4 +33,7 @@ public class CommunityDirectory {
         this.commDir.remove(com);
     }
     
+    public void updateComm(Community com, int i){
+        this.commDir.set(i, com);
+    }
 }

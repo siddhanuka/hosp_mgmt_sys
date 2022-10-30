@@ -32,5 +32,9 @@ public class HospitalDirectory {
     public void deleteNewHospital(Hospital i){
         hospDir.remove(i);
     }
+    
+    public void updateHospDir(int index, Hospital hosp){
+        hospDir.set(index, hosp);
+    }
 
 }

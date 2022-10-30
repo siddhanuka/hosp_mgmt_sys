@@ -32,5 +32,9 @@ public class CityDirectory {
     public void deleteNewCity(City i){
         cityDir.remove(i);
     }
+    
+    public void updateCity(City c, int i){
+        cityDir.set(i, c);
+    }
 
 }

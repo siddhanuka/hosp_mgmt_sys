@@ -206,8 +206,8 @@ public class MainJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEncounterActionPerformed
 
     private void btnDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoctorActionPerformed
-        DoctorJFrame doc = new DoctorJFrame(docDir, this.userId);
-        doc.setVisible(true);
+//        DoctorJFrame doc = new DoctorJFrame(docDir, this.userId);
+//        doc.setVisible(true);
     }//GEN-LAST:event_btnDoctorActionPerformed
 
     private void btnHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHospitalActionPerformed
