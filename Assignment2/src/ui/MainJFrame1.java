@@ -135,6 +135,7 @@ public class MainJFrame1 extends javax.swing.JFrame {
         jButton12 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
         jButton16 = new javax.swing.JButton();
+        jButton23 = new javax.swing.JButton();
         PatientEditPanel = new javax.swing.JPanel();
         jScrollPane7 = new javax.swing.JScrollPane();
         tblPerson = new javax.swing.JTable();
@@ -285,6 +286,7 @@ public class MainJFrame1 extends javax.swing.JFrame {
         txtAge4 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         ParentPanel.setLayout(new java.awt.CardLayout());
 
@@ -337,31 +339,28 @@ public class MainJFrame1 extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(LoginPanelLayout.createSequentialGroup()
                 .addGap(441, 441, 441)
-                .addGroup(LoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(LoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblUsername, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblPassword, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblUserRole, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(LoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnSysAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(LoginPanelLayout.createSequentialGroup()
-                        .addGroup(LoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblUsername, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblPassword, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblUserRole, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(LoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtUsername)
-                            .addComponent(txtPassword)
-                            .addComponent(cmbUserRole, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(LoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(btnSysAdmin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LoginPanelLayout.createSequentialGroup()
-                            .addComponent(btnLogin)
-                            .addGap(18, 18, 18)
-                            .addComponent(btnRegister))))
+                        .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnRegister, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(txtUsername)
+                    .addComponent(txtPassword)
+                    .addComponent(cmbUserRole, 0, 221, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         LoginPanelLayout.setVerticalGroup(
             LoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LoginPanelLayout.createSequentialGroup()
-                .addGap(34, 34, 34)
+                .addGap(182, 182, 182)
                 .addComponent(jLabel5)
-                .addGap(201, 201, 201)
+                .addGap(53, 53, 53)
                 .addGroup(LoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblUsername)
                     .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -555,17 +554,17 @@ public class MainJFrame1 extends javax.swing.JFrame {
 
         tblDocAptList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Encounter ID", "Patient Name", "Appointment Date"
+                "Encounter ID", "Patient Name", "Appointment Date", "Diagnosis"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -658,11 +657,11 @@ public class MainJFrame1 extends javax.swing.JFrame {
                 .addGroup(AddEncounterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
                     .addComponent(txtTemp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(58, 58, 58)
+                .addGap(18, 18, 18)
                 .addGroup(AddEncounterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblDiag1)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(58, 58, 58)
                 .addGroup(AddEncounterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSave1)
                     .addComponent(jButton2))
@@ -824,7 +823,7 @@ public class MainJFrame1 extends javax.swing.JFrame {
             }
         });
 
-        jButton12.setText("Community Admin");
+        jButton12.setText("Location & Hospital Registry");
         jButton12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton12ActionPerformed(evt);
@@ -845,6 +844,13 @@ public class MainJFrame1 extends javax.swing.JFrame {
             }
         });
 
+        jButton23.setText("Doctor list in Hospital ");
+        jButton23.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton23ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout SysAdminHomePanelLayout = new javax.swing.GroupLayout(SysAdminHomePanel);
         SysAdminHomePanel.setLayout(SysAdminHomePanelLayout);
         SysAdminHomePanelLayout.setHorizontalGroup(
@@ -855,8 +861,9 @@ public class MainJFrame1 extends javax.swing.JFrame {
                     .addComponent(jButton12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(573, Short.MAX_VALUE))
+                    .addComponent(jButton16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(525, Short.MAX_VALUE))
         );
         SysAdminHomePanelLayout.setVerticalGroup(
             SysAdminHomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -868,8 +875,10 @@ public class MainJFrame1 extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jButton12)
                 .addGap(18, 18, 18)
+                .addComponent(jButton23)
+                .addGap(18, 18, 18)
                 .addComponent(jButton16)
-                .addContainerGap(477, Short.MAX_VALUE))
+                .addContainerGap(436, Short.MAX_VALUE))
         );
 
         ParentPanel.add(SysAdminHomePanel, "card7");
@@ -2306,6 +2315,8 @@ public class MainJFrame1 extends javax.swing.JFrame {
         encHis.addEncounter(addEnc);
         
         JOptionPane.showMessageDialog(this, "Appointment booked successfully.");
+        
+        patEncHistory(AuthenticatePatient().getPatId());
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void txtBpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBpActionPerformed
@@ -2361,6 +2372,7 @@ public class MainJFrame1 extends javax.swing.JFrame {
         encHis.UpdateEncounter(ec, r);
         
         JOptionPane.showMessageDialog(this, "Diagnosis completed for the ecounter.");
+        docAptList(ec.getEcounterWith());
         resetBookFields();
     }//GEN-LAST:event_btnSave1ActionPerformed
 
@@ -2401,6 +2413,7 @@ public class MainJFrame1 extends javax.swing.JFrame {
         
         cmbRegCity.addItem(cname);
         cmbRegCity1.addItem(cname);
+        cmbRegCity2.addItem(cname);
         txtCityName.setText("");
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -2422,6 +2435,7 @@ public class MainJFrame1 extends javax.swing.JFrame {
         
         cmbRegCommunity.addItem(ctname);
         cmbRegCommunity1.addItem(ctname);
+        cmbRegCommunity2.addItem(ctname);
         txtCommunityName.setText("");
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -2443,6 +2457,7 @@ public class MainJFrame1 extends javax.swing.JFrame {
         
         cmbRegHouse.addItem(hname);
         cmbRegHouse1.addItem(hname);
+        cmbRegHouse2.addItem(hname);
         txtHouseName.setText("");
     }//GEN-LAST:event_jButton6ActionPerformed
 
@@ -2568,7 +2583,8 @@ public class MainJFrame1 extends javax.swing.JFrame {
         per.setHouse(house);
         per.setName(name);
         per.setPhone(phone);
-
+        
+        populatePersonList();
     }//GEN-LAST:event_btnUpdate1ActionPerformed
 
     private void btnDelete1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelete1ActionPerformed
@@ -2589,6 +2605,8 @@ public class MainJFrame1 extends javax.swing.JFrame {
         cmbRegHouse1.setSelectedIndex(-1);
         cmbRegCommunity1.setSelectedIndex(-1);
         cmbRegCity1.setSelectedIndex(-1);
+        
+        populatePersonList();
     }//GEN-LAST:event_btnDelete1ActionPerformed
 
     private void btnExit1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExit1ActionPerformed
@@ -2623,7 +2641,7 @@ public class MainJFrame1 extends javax.swing.JFrame {
         hospital.addDoctor(docSelected);
         hospDir.updateHospDir(r, hospital); 
         
-         JOptionPane.showMessageDialog(this, "Doctor successfully added to the hospital.");
+        JOptionPane.showMessageDialog(this, "Doctor successfully added to the hospital.");
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
@@ -2763,7 +2781,8 @@ public class MainJFrame1 extends javax.swing.JFrame {
         per.setHouse(house);
         per.setName(name);
         per.setPhone(phone);
-
+        
+        populateDoctorList();
     }//GEN-LAST:event_btnUpdate2ActionPerformed
 
     private void btnDelete2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelete2ActionPerformed
@@ -2775,6 +2794,7 @@ public class MainJFrame1 extends javax.swing.JFrame {
         
         DefaultTableModel model = (DefaultTableModel) tblDoctorList.getModel();
         Doctor1 per = (Doctor1) model.getValueAt(index, 0);
+        removeDocFromHospital(per);
         docDir.deleteDoctor(per);
         
         txtName2.setText("");
@@ -2784,6 +2804,8 @@ public class MainJFrame1 extends javax.swing.JFrame {
         cmbRegHouse2.setSelectedIndex(-1);
         cmbRegCommunity2.setSelectedIndex(-1);
         cmbRegCity2.setSelectedIndex(-1);
+        
+        populateDoctorList();
     }//GEN-LAST:event_btnDelete2ActionPerformed
 
     private void btnExit2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExit2ActionPerformed
@@ -2882,6 +2904,8 @@ public class MainJFrame1 extends javax.swing.JFrame {
         
         ct.setCity(txtCityName.getText());
         cityDir.updateCity(ct, index);
+        
+        refreshCityTable();
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
@@ -2893,6 +2917,8 @@ public class MainJFrame1 extends javax.swing.JFrame {
         
         ct.setCommunityNames(txtCommunityName.getText());
         commDir.updateComm(ct, index);
+        
+        refreshCommTable();
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
@@ -2904,6 +2930,8 @@ public class MainJFrame1 extends javax.swing.JFrame {
         
         ct.setStreet(txtHouseName.getText());
         houseDir.updateHouseDetails(index, ct);
+        
+        refreshHouseTable();
     }//GEN-LAST:event_jButton17ActionPerformed
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
@@ -2915,6 +2943,8 @@ public class MainJFrame1 extends javax.swing.JFrame {
         
         ct.setName(txtHospitalName.getText());
         hospDir.updateHospDir(index, ct);
+        
+        refreshHospitalTable();
     }//GEN-LAST:event_jButton18ActionPerformed
 
     private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
@@ -2923,6 +2953,8 @@ public class MainJFrame1 extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) tblCity.getModel();
         City ct = (City) model.getValueAt(row, 0);
         cityDir.deleteNewCity(ct);
+        
+        refreshCityTable();
     }//GEN-LAST:event_jButton19ActionPerformed
 
     private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
@@ -2931,6 +2963,8 @@ public class MainJFrame1 extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) tblCommunity.getModel();
         Community ct = (Community) model.getValueAt(row, 0);
         commDir.deleteComm(ct);
+        
+        refreshCommTable();
     }//GEN-LAST:event_jButton20ActionPerformed
 
     private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
@@ -2939,6 +2973,8 @@ public class MainJFrame1 extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) tblHospital.getModel();
         Hospital ct = (Hospital) model.getValueAt(row, 0);
         hospDir.deleteNewHospital(ct);
+        
+        refreshHospitalTable();
     }//GEN-LAST:event_jButton21ActionPerformed
 
     private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
@@ -2947,7 +2983,13 @@ public class MainJFrame1 extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) tblHouse.getModel();
         House ct = (House) model.getValueAt(row, 0);
         houseDir.deleteNewHouse(ct);
+        
+        refreshHouseTable();
     }//GEN-LAST:event_jButton22ActionPerformed
+
+    private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
+        switchPanels(HospitalAdminPanel);
+    }//GEN-LAST:event_jButton23ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -3061,6 +3103,7 @@ public class MainJFrame1 extends javax.swing.JFrame {
     private javax.swing.JButton jButton20;
     private javax.swing.JButton jButton21;
     private javax.swing.JButton jButton22;
+    private javax.swing.JButton jButton23;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -3250,10 +3293,11 @@ public class MainJFrame1 extends javax.swing.JFrame {
         model.setRowCount(0);
         for(Encounter enc: encHis.getEncHist()){
             if(enc.getEcounterWith().equalsIgnoreCase(doc) ){
-                Object[] row = new Object[3];
+                Object[] row = new Object[4];
                 row[0]=enc;
                 row[1]=enc.getPatName();
                 row[2]=enc.getEncounter();
+                row[3]=enc.getDiagnosis();
                 model.addRow(row); 
             }
         }
@@ -3366,6 +3410,50 @@ public class MainJFrame1 extends javax.swing.JFrame {
             row[2]=p.getGender();
             row[3]=p.getEmail();
             model.addRow(row);
+        }
+    }
+
+    private void refreshCityTable() {
+        DefaultTableModel model = (DefaultTableModel) tblCity.getModel();
+        for (City c : cityDir.getCityDir()){
+            Object[] row=new Object[1];
+            row[0] = c;
+            model.addRow(row);
+        }
+    }
+
+    private void refreshCommTable() {
+        DefaultTableModel model = (DefaultTableModel) tblCommunity.getModel();
+        for (Community c : commDir.getCommDir()){
+            Object[] row=new Object[1];
+            row[0] = c;
+            model.addRow(row);
+        }
+    }
+
+    private void refreshHospitalTable() {
+        DefaultTableModel model = (DefaultTableModel) tblHospital.getModel();
+        for (Hospital c : hospDir.getHospitalDir()){
+            Object[] row=new Object[1];
+            row[0] = c;
+            model.addRow(row);
+        }
+    }
+
+    private void refreshHouseTable() {
+        DefaultTableModel model = (DefaultTableModel) tblHouse.getModel();
+        for (House c : houseDir.getHouseDir()){
+            Object[] row=new Object[1];
+            row[0] = c;
+            model.addRow(row);
+        }
+    }
+
+    private void removeDocFromHospital(Doctor1 per) {
+        for (Hospital c : hospDir.getHospitalDir()){
+            if (c.getDocList().contains(per)){
+                c.getDocList().remove(per);
+            }
         }
     }
 }
