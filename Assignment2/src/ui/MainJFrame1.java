@@ -2379,6 +2379,11 @@ public class MainJFrame1 extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String cname = txtCityName.getText();
         
+        if (cname.isBlank()){
+            JOptionPane.showMessageDialog(this, "Please enter a value for City.");
+            return;
+        }
+        
         City city = new City(cname);
         cityDir.addNewCity(city);
         
@@ -2399,6 +2404,11 @@ public class MainJFrame1 extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         String ctname = txtCommunityName.getText();
+        
+        if (ctname.isBlank()){
+            JOptionPane.showMessageDialog(this, "Please enter a value for Community.");
+            return;
+        }
         
         Community comm = new Community();
         comm.setCommunityNames(ctname);
@@ -2422,6 +2432,11 @@ public class MainJFrame1 extends javax.swing.JFrame {
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         String hname = txtHouseName.getText();
         
+        if (hname.isBlank()){
+            JOptionPane.showMessageDialog(this, "Please enter a value for House.");
+            return;
+        }
+        
         House house = new House();
         house.setStreet(hname);
         houseDir.addNewHouse(house);
@@ -2443,6 +2458,11 @@ public class MainJFrame1 extends javax.swing.JFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         String hospName = txtHospitalName.getText();
+        
+        if (hospName.isBlank()){
+            JOptionPane.showMessageDialog(this, "Please enter a value for Hospital.");
+            return;
+        }
         
         int indexCity = tblCity.getSelectedRow();
         int indexCommunity = tblCommunity.getSelectedRow();
@@ -2487,6 +2507,74 @@ public class MainJFrame1 extends javax.swing.JFrame {
     }//GEN-LAST:event_txtAge1ActionPerformed
 
     private void btnAdd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd1ActionPerformed
+        String name = txtName.getText();
+        if (name.isBlank()){
+            JOptionPane.showMessageDialog(this, "Please enter the Name.");
+            return;
+        }
+
+        long phone;
+        try{
+            phone = Long.parseLong(txtPhone.getText());
+            if (txtPhone.getText().length() < 10) {
+                JOptionPane.showMessageDialog(this, "Please enter a 10 digit number.");
+                return;
+            }
+        }catch(NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Please enter a number for Phone.");
+            return;
+        }
+
+        int age;
+        try{
+            age = Integer.parseInt(txtAge.getText());
+            if (age < 0) {
+                JOptionPane.showMessageDialog(this, "Please enter a valid number for Age.");
+                return;
+            }
+        }catch(NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid number for Age.");
+            return;
+        }
+
+        String sex = cmbSex.getSelectedItem().toString();
+        if (sex.isBlank()){
+            JOptionPane.showMessageDialog(this, "Please enter the Gender.");
+            return;
+        }
+
+        String email = txtEmail.getText();
+        if (!isValidEmail(email)){
+            JOptionPane.showMessageDialog(this, "Please enter a valid Email.");
+            return;
+        }
+
+        int id = getId();
+        
+        String city="";
+        String community="";
+        String house="";
+        try{
+            
+            city = cmbRegCity.getSelectedItem().toString();
+            community = cmbRegCommunity.getSelectedItem().toString();
+            house = cmbRegHouse.getSelectedItem().toString();
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(this,"City/Community/House cannot be empty.");
+            return;
+        }
+        
+        Patient1 pat = new Patient1();
+        pat.setAge(age);
+        pat.setEmail(email);
+        pat.setGender(sex);
+        pat.setName(name);
+        pat.setPatId(id);
+        pat.setPhone(phone);
+        pat.setCity(city);
+        pat.setCommunity(community);
+        pat.setHouse(house);
+        patDir.addPatient(pat);
         
     }//GEN-LAST:event_btnAdd1ActionPerformed
 
@@ -2600,8 +2688,13 @@ public class MainJFrame1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton14ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        String hospName = cmbDocHospital.getSelectedItem().toString();
+        if (cmbDocHospital.getSelectedItem() == null){
+            JOptionPane.showMessageDialog(this, "Please select a hospital to add doctor to.");
+            return;
+        }
         
+        String hospName = cmbDocHospital.getSelectedItem().toString();
+               
         Hospital hospital= new Hospital();
         for(Hospital hp: hospDir.getHospitalDir()){
             if(hp.getName().equalsIgnoreCase(hospName)){
@@ -2643,7 +2736,10 @@ public class MainJFrame1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void cmbBookHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbBookHospitalActionPerformed
-        String hospName = cmbBookHospital.getSelectedItem().toString();
+        String hospName="";
+        if (cmbBookHospital.getSelectedItem() != null ){
+            hospName = cmbBookHospital.getSelectedItem().toString();
+        }
         
         for (Hospital h: hospDir.getHospitalDir()){
             if (h.getName().equalsIgnoreCase(hospName)){
@@ -2681,11 +2777,79 @@ public class MainJFrame1 extends javax.swing.JFrame {
     }//GEN-LAST:event_tblPersonMouseClicked
 
     private void cmbChooseDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbChooseDocActionPerformed
-
     }//GEN-LAST:event_cmbChooseDocActionPerformed
 
     private void btnAdd2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd2ActionPerformed
-        // TODO add your handling code here:
+        
+        String name = txtName.getText();
+        if (name.isBlank()){
+            JOptionPane.showMessageDialog(this, "Please enter the Name.");
+            return;
+        }
+
+        long phone;
+        try{
+            phone = Long.parseLong(txtPhone.getText());
+            if (txtPhone.getText().length() < 10) {
+                JOptionPane.showMessageDialog(this, "Please enter a 10 digit number.");
+                return;
+            }
+        }catch(NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Please enter a number for Phone.");
+            return;
+        }
+
+        int age;
+        try{
+            age = Integer.parseInt(txtAge.getText());
+            if (age < 0) {
+                JOptionPane.showMessageDialog(this, "Please enter a valid number for Age.");
+                return;
+            }
+        }catch(NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid number for Age.");
+            return;
+        }
+
+        String sex = cmbSex.getSelectedItem().toString();
+        if (sex.isBlank()){
+            JOptionPane.showMessageDialog(this, "Please enter the Gender.");
+            return;
+        }
+
+        String email = txtEmail.getText();
+        if (!isValidEmail(email)){
+            JOptionPane.showMessageDialog(this, "Please enter a valid Email.");
+            return;
+        }
+
+        int id = getId();
+        
+        String city="";
+        String community="";
+        String house="";
+        try{
+            
+            city = cmbRegCity.getSelectedItem().toString();
+            community = cmbRegCommunity.getSelectedItem().toString();
+            house = cmbRegHouse.getSelectedItem().toString();
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(this,"City/Community/House cannot be empty.");
+            return;
+        }
+        
+        Doctor1 doc = new Doctor1();
+        doc.setAge(age);
+        doc.setEmail(email);
+        doc.setGender(sex);
+        doc.setName(name);
+        doc.setDocId(id);
+        doc.setPhone(phone);
+        doc.setCity(city);
+        doc.setCommunity(community);
+        doc.setHouse(house);
+        docDir.addDoctor(doc);
+        
     }//GEN-LAST:event_btnAdd2ActionPerformed
 
     private void btnUpdate2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdate2ActionPerformed
@@ -2878,6 +3042,11 @@ public class MainJFrame1 extends javax.swing.JFrame {
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         int row = tblCity.getSelectedRow();
         
+        if (row<0){
+            JOptionPane.showMessageDialog(this, "Please select a City to update.");
+            return;
+        }
+        
         DefaultTableModel model = (DefaultTableModel) tblCity.getModel();
         City ct = (City) model.getValueAt(row, 0);
         int index = cityDir.getCityDir().indexOf(ct);
@@ -2890,6 +3059,11 @@ public class MainJFrame1 extends javax.swing.JFrame {
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         int row = tblCommunity.getSelectedRow();
+        
+        if (row<0){
+            JOptionPane.showMessageDialog(this, "Please select a Community to update.");
+            return;
+        }
         
         DefaultTableModel model = (DefaultTableModel) tblCommunity.getModel();
         Community ct = (Community) model.getValueAt(row, 0);
@@ -2904,6 +3078,11 @@ public class MainJFrame1 extends javax.swing.JFrame {
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
         int row = tblHouse.getSelectedRow();
         
+        if (row<0){
+            JOptionPane.showMessageDialog(this, "Please select a House to update.");
+            return;
+        }
+        
         DefaultTableModel model = (DefaultTableModel) tblHouse.getModel();
         House ct = (House) model.getValueAt(row, 0);
         int index = houseDir.getHouseDir().indexOf(ct);
@@ -2917,6 +3096,11 @@ public class MainJFrame1 extends javax.swing.JFrame {
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
         int row = tblHospital.getSelectedRow();
         
+        if (row<0){
+            JOptionPane.showMessageDialog(this, "Please select a Hospital to update.");
+            return;
+        }
+        
         DefaultTableModel model = (DefaultTableModel) tblHospital.getModel();
         Hospital ct = (Hospital) model.getValueAt(row, 0);
         int index = hospDir.getHospitalDir().indexOf(ct);
@@ -2928,17 +3112,27 @@ public class MainJFrame1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton18ActionPerformed
 
     private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
-         int row = tblCity.getSelectedRow();
+        int row = tblCity.getSelectedRow();
+        
+        if (row<0){
+            JOptionPane.showMessageDialog(this, "Please select a City to delete.");
+            return;
+        }
         
         DefaultTableModel model = (DefaultTableModel) tblCity.getModel();
         City ct = (City) model.getValueAt(row, 0);
         cityDir.deleteNewCity(ct);
-        
+               
         refreshCityTable();
     }//GEN-LAST:event_jButton19ActionPerformed
 
     private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
         int row = tblCommunity.getSelectedRow();
+        
+        if (row<0){
+            JOptionPane.showMessageDialog(this, "Please select a Community to delete.");
+            return;
+        }
         
         DefaultTableModel model = (DefaultTableModel) tblCommunity.getModel();
         Community ct = (Community) model.getValueAt(row, 0);
@@ -2950,6 +3144,11 @@ public class MainJFrame1 extends javax.swing.JFrame {
     private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
         int row = tblHospital.getSelectedRow();
         
+        if (row<0){
+            JOptionPane.showMessageDialog(this, "Please select a Hospital to delete.");
+            return;
+        }
+        
         DefaultTableModel model = (DefaultTableModel) tblHospital.getModel();
         Hospital ct = (Hospital) model.getValueAt(row, 0);
         hospDir.deleteNewHospital(ct);
@@ -2959,6 +3158,11 @@ public class MainJFrame1 extends javax.swing.JFrame {
 
     private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
         int row = tblHouse.getSelectedRow();
+        
+        if (row<0){
+            JOptionPane.showMessageDialog(this, "Please select a House to delete.");
+            return;
+        }
         
         DefaultTableModel model = (DefaultTableModel) tblHouse.getModel();
         House ct = (House) model.getValueAt(row, 0);
@@ -3343,6 +3547,7 @@ public class MainJFrame1 extends javax.swing.JFrame {
     }
 
     private void nearbyHospitals(String community) {
+        System.out.println(cmbBookHospital.getItemCount());
         cmbBookHospital.removeAllItems();
         
         for (Hospital hop : hospDir.getHospitalDir()){
@@ -3394,6 +3599,8 @@ public class MainJFrame1 extends javax.swing.JFrame {
 
     private void refreshCityTable() {
         DefaultTableModel model = (DefaultTableModel) tblCity.getModel();
+        model.setRowCount(0);
+        
         for (City c : cityDir.getCityDir()){
             Object[] row=new Object[1];
             row[0] = c;
@@ -3403,6 +3610,8 @@ public class MainJFrame1 extends javax.swing.JFrame {
 
     private void refreshCommTable() {
         DefaultTableModel model = (DefaultTableModel) tblCommunity.getModel();
+        model.setRowCount(0);
+        
         for (Community c : commDir.getCommDir()){
             Object[] row=new Object[1];
             row[0] = c;
@@ -3412,6 +3621,8 @@ public class MainJFrame1 extends javax.swing.JFrame {
 
     private void refreshHospitalTable() {
         DefaultTableModel model = (DefaultTableModel) tblHospital.getModel();
+        model.setRowCount(0);
+        
         for (Hospital c : hospDir.getHospitalDir()){
             Object[] row=new Object[1];
             row[0] = c;
@@ -3421,6 +3632,8 @@ public class MainJFrame1 extends javax.swing.JFrame {
 
     private void refreshHouseTable() {
         DefaultTableModel model = (DefaultTableModel) tblHouse.getModel();
+        model.setRowCount(0);
+        
         for (House c : houseDir.getHouseDir()){
             Object[] row=new Object[1];
             row[0] = c;
