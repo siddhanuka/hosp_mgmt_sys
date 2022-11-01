@@ -150,7 +150,6 @@ public class MainJFrame1 extends javax.swing.JFrame {
         txtPhone1 = new javax.swing.JTextField();
         txtEmail1 = new javax.swing.JTextField();
         lblZip6 = new javax.swing.JLabel();
-        btnAdd1 = new javax.swing.JButton();
         btnUpdate1 = new javax.swing.JButton();
         btnDelete1 = new javax.swing.JButton();
         btnExit1 = new javax.swing.JButton();
@@ -204,7 +203,6 @@ public class MainJFrame1 extends javax.swing.JFrame {
         txtPhone2 = new javax.swing.JTextField();
         txtEmail2 = new javax.swing.JTextField();
         lblZip8 = new javax.swing.JLabel();
-        btnAdd2 = new javax.swing.JButton();
         btnUpdate2 = new javax.swing.JButton();
         btnDelete2 = new javax.swing.JButton();
         btnExit2 = new javax.swing.JButton();
@@ -907,13 +905,6 @@ public class MainJFrame1 extends javax.swing.JFrame {
 
         lblZip6.setText("House:");
 
-        btnAdd1.setText("Add");
-        btnAdd1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAdd1ActionPerformed(evt);
-            }
-        });
-
         btnUpdate1.setText("Update");
         btnUpdate1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -957,8 +948,7 @@ public class MainJFrame1 extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtEmail1))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PatientEditPanelLayout.createSequentialGroup()
-                                .addComponent(btnAdd1)
-                                .addGap(18, 18, 18)
+                                .addGap(90, 90, 90)
                                 .addComponent(btnUpdate1)
                                 .addGap(18, 18, 18)
                                 .addComponent(btnDelete1)
@@ -1036,7 +1026,6 @@ public class MainJFrame1 extends javax.swing.JFrame {
                             .addComponent(cmbRegHouse1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(160, 160, 160)
                         .addGroup(PatientEditPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnAdd1)
                             .addComponent(btnUpdate1)
                             .addComponent(btnDelete1)
                             .addComponent(btnExit1))))
@@ -1460,13 +1449,6 @@ public class MainJFrame1 extends javax.swing.JFrame {
 
         lblZip8.setText("House:");
 
-        btnAdd2.setText("Add");
-        btnAdd2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAdd2ActionPerformed(evt);
-            }
-        });
-
         btnUpdate2.setText("Update");
         btnUpdate2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1551,8 +1533,7 @@ public class MainJFrame1 extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtEmail2))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, DoctorEditPanelLayout.createSequentialGroup()
-                                .addComponent(btnAdd2)
-                                .addGap(18, 18, 18)
+                                .addGap(90, 90, 90)
                                 .addComponent(btnUpdate2)
                                 .addGap(18, 18, 18)
                                 .addComponent(btnDelete2)
@@ -1630,7 +1611,6 @@ public class MainJFrame1 extends javax.swing.JFrame {
                             .addComponent(cmbRegHouse2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(160, 160, 160)
                         .addGroup(DoctorEditPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnAdd2)
                             .addComponent(btnUpdate2)
                             .addComponent(btnDelete2)
                             .addComponent(btnExit2))))
@@ -2077,7 +2057,7 @@ public class MainJFrame1 extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(ParentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 810, Short.MAX_VALUE)
+            .addComponent(ParentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -2506,78 +2486,6 @@ public class MainJFrame1 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAge1ActionPerformed
 
-    private void btnAdd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd1ActionPerformed
-        String name = txtName.getText();
-        if (name.isBlank()){
-            JOptionPane.showMessageDialog(this, "Please enter the Name.");
-            return;
-        }
-
-        long phone;
-        try{
-            phone = Long.parseLong(txtPhone.getText());
-            if (txtPhone.getText().length() < 10) {
-                JOptionPane.showMessageDialog(this, "Please enter a 10 digit number.");
-                return;
-            }
-        }catch(NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Please enter a number for Phone.");
-            return;
-        }
-
-        int age;
-        try{
-            age = Integer.parseInt(txtAge.getText());
-            if (age < 0) {
-                JOptionPane.showMessageDialog(this, "Please enter a valid number for Age.");
-                return;
-            }
-        }catch(NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Please enter a valid number for Age.");
-            return;
-        }
-
-        String sex = cmbSex.getSelectedItem().toString();
-        if (sex.isBlank()){
-            JOptionPane.showMessageDialog(this, "Please enter the Gender.");
-            return;
-        }
-
-        String email = txtEmail.getText();
-        if (!isValidEmail(email)){
-            JOptionPane.showMessageDialog(this, "Please enter a valid Email.");
-            return;
-        }
-
-        int id = getId();
-        
-        String city="";
-        String community="";
-        String house="";
-        try{
-            
-            city = cmbRegCity.getSelectedItem().toString();
-            community = cmbRegCommunity.getSelectedItem().toString();
-            house = cmbRegHouse.getSelectedItem().toString();
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(this,"City/Community/House cannot be empty.");
-            return;
-        }
-        
-        Patient1 pat = new Patient1();
-        pat.setAge(age);
-        pat.setEmail(email);
-        pat.setGender(sex);
-        pat.setName(name);
-        pat.setPatId(id);
-        pat.setPhone(phone);
-        pat.setCity(city);
-        pat.setCommunity(community);
-        pat.setHouse(house);
-        patDir.addPatient(pat);
-        
-    }//GEN-LAST:event_btnAdd1ActionPerformed
-
     private void btnUpdate1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdate1ActionPerformed
         int index = tblPerson.getSelectedRow();
         if (index<0){
@@ -2778,79 +2686,6 @@ public class MainJFrame1 extends javax.swing.JFrame {
 
     private void cmbChooseDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbChooseDocActionPerformed
     }//GEN-LAST:event_cmbChooseDocActionPerformed
-
-    private void btnAdd2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd2ActionPerformed
-        
-        String name = txtName.getText();
-        if (name.isBlank()){
-            JOptionPane.showMessageDialog(this, "Please enter the Name.");
-            return;
-        }
-
-        long phone;
-        try{
-            phone = Long.parseLong(txtPhone.getText());
-            if (txtPhone.getText().length() < 10) {
-                JOptionPane.showMessageDialog(this, "Please enter a 10 digit number.");
-                return;
-            }
-        }catch(NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Please enter a number for Phone.");
-            return;
-        }
-
-        int age;
-        try{
-            age = Integer.parseInt(txtAge.getText());
-            if (age < 0) {
-                JOptionPane.showMessageDialog(this, "Please enter a valid number for Age.");
-                return;
-            }
-        }catch(NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Please enter a valid number for Age.");
-            return;
-        }
-
-        String sex = cmbSex.getSelectedItem().toString();
-        if (sex.isBlank()){
-            JOptionPane.showMessageDialog(this, "Please enter the Gender.");
-            return;
-        }
-
-        String email = txtEmail.getText();
-        if (!isValidEmail(email)){
-            JOptionPane.showMessageDialog(this, "Please enter a valid Email.");
-            return;
-        }
-
-        int id = getId();
-        
-        String city="";
-        String community="";
-        String house="";
-        try{
-            
-            city = cmbRegCity.getSelectedItem().toString();
-            community = cmbRegCommunity.getSelectedItem().toString();
-            house = cmbRegHouse.getSelectedItem().toString();
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(this,"City/Community/House cannot be empty.");
-            return;
-        }
-        
-        Doctor1 doc = new Doctor1();
-        doc.setAge(age);
-        doc.setEmail(email);
-        doc.setGender(sex);
-        doc.setName(name);
-        doc.setDocId(id);
-        doc.setPhone(phone);
-        doc.setCity(city);
-        doc.setCommunity(community);
-        doc.setHouse(house);
-        docDir.addDoctor(doc);
-        
-    }//GEN-LAST:event_btnAdd2ActionPerformed
 
     private void btnUpdate2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdate2ActionPerformed
         int index = tblDoctorList.getSelectedRow();
@@ -3224,8 +3059,6 @@ public class MainJFrame1 extends javax.swing.JFrame {
     private javax.swing.JPanel RegistrationPanel;
     private javax.swing.JPanel SysAdminHomePanel;
     private javax.swing.JButton btnAdd;
-    private javax.swing.JButton btnAdd1;
-    private javax.swing.JButton btnAdd2;
     private javax.swing.JButton btnAdd3;
     private javax.swing.JButton btnAdd4;
     private javax.swing.JButton btnDelete1;

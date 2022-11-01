@@ -1013,8 +1013,7 @@
                                       <Component id="txtEmail1" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="btnAdd1" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
                                       <Component id="btnUpdate1" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="btnDelete1" min="-2" max="-2" attributes="0"/>
@@ -1114,7 +1113,6 @@
                               </Group>
                               <EmptySpace min="-2" pref="160" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="btnAdd1" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="btnUpdate1" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="btnDelete1" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="btnExit1" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -1245,14 +1243,6 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="House:"/>
               </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="btnAdd1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Add"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAdd1ActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnUpdate1">
               <Properties>
@@ -1937,8 +1927,7 @@
                                       <Component id="txtEmail2" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="btnAdd2" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
                                       <Component id="btnUpdate2" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="btnDelete2" min="-2" max="-2" attributes="0"/>
@@ -2038,7 +2027,6 @@
                               </Group>
                               <EmptySpace min="-2" pref="160" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="btnAdd2" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="btnUpdate2" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="btnDelete2" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="btnExit2" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -2072,14 +2060,6 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="House:"/>
               </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="btnAdd2">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Add"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAdd2ActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnUpdate2">
               <Properties>
