@@ -2957,6 +2957,10 @@ public class MainJFrame1 extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) tblCity.getModel();
         City ct = (City) model.getValueAt(row, 0);
         cityDir.deleteNewCity(ct);
+        
+        cmbRegCity.removeItem(ct.getCity());
+        cmbRegCity1.removeItem(ct.getCity());
+        cmbRegCity2.removeItem(ct.getCity());
                
         refreshCityTable();
     }//GEN-LAST:event_jButton19ActionPerformed
@@ -2972,6 +2976,10 @@ public class MainJFrame1 extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) tblCommunity.getModel();
         Community ct = (Community) model.getValueAt(row, 0);
         commDir.deleteComm(ct);
+        
+        cmbRegCommunity.removeItem(ct.getCommunityNames());
+        cmbRegCommunity1.removeItem(ct.getCommunityNames());
+        cmbRegCommunity2.removeItem(ct.getCommunityNames());        
         
         refreshCommTable();
     }//GEN-LAST:event_jButton20ActionPerformed
@@ -3002,6 +3010,10 @@ public class MainJFrame1 extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) tblHouse.getModel();
         House ct = (House) model.getValueAt(row, 0);
         houseDir.deleteNewHouse(ct);
+
+        cmbRegHouse.removeItem(ct.getStreet());
+        cmbRegHouse1.removeItem(ct.getStreet());
+        cmbRegHouse2.removeItem(ct.getStreet()); 
         
         refreshHouseTable();
     }//GEN-LAST:event_jButton22ActionPerformed
